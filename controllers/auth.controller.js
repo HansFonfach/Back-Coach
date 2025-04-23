@@ -26,11 +26,11 @@ export const login = async (req, res) => {
     res
       .cookie("token", token, {
         httpOnly: true,
-        secure: true, // Obligatorio para HTTPS
-        sameSite: "none", // Necesario para cross-origin (Vercel y Render son dominios diferentes)
-        domain: ".onrender.com", // Permite subdominios de Render
+        secure: true, // Obligatorio en producción
+        sameSite: "none", // Crucial para cross-origin
+        domain: "back-coach.onrender.com", // ¡Sin punto al inicio!
         path: "/",
-        maxAge: 3600000, // 1 hora
+        maxAge: 3600000,
       })
       .json({
         token,
