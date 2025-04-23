@@ -20,6 +20,7 @@ app.use(
       "https://back-coach.onrender.com"
     ],
     credentials: true, // Permite enviar cookies/tokens
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Asegura todos los métodos
   })
 );
 app.use(morgan("dev"));
