@@ -14,7 +14,7 @@ const app = express(); //inicializa app
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["https://back-coach.onrender.com", "http://localhost:3000"],
     credentials: true,
   })
 ); // Habilita CORS para todos los orígenes
