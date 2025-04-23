@@ -12,17 +12,18 @@ dotenv.config();
 const app = express(); //inicializa app
 
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://react-coach.vercel.app", // ¡Añade esta URL!
-      "https://back-coach.onrender.com"
-    ],
-    credentials: true, // Permite enviar cookies/tokens
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Asegura todos los métodos
-  })
-);
+app.use(cors({
+  origin: 'https://react-coach.vercel.app', // Reemplaza con tu URL de Vercel
+  credentials: true
+}));
+
+// Opcional: Configuración manual de headers (si necesitas más control)
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://react-coach.vercel.app');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
