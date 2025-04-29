@@ -53,12 +53,28 @@ export const getPublicBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find({})
       .populate("autor")
-      .select("-contenidoPrivado"); // Excluye datos sensibles
-    res.json(blogs);
+      .select("-contenidoPrivado");
+
+    const blogsConImagen = blogs.map((blog) => {
+      let imagenDataURL = null;
+      if (blog.imagen && Buffer.isBuffer(blog.imagen)) {
+        imagenDataURL = `data:${blog.mimeType};base64,${blog.imagen.toString(
+          "base64"
+        )}`;
+      }
+
+      return {
+        ...blog._doc,
+        imagen: imagenDataURL,
+      };
+    });
+
+    res.json(blogsConImagen);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
 export const getPublicBlog = async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
