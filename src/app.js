@@ -16,7 +16,7 @@ const corsOptions = {
   origin: [
     'https://react-coach.vercel.app', // URL exacta de tu frontend
     'http://localhost:3000', // Para desarrollo
-    'https://xn--rojasbriceocoach-gub.cl/'
+    'https://xn--rojasbriceocoach-gub.cl'
   ],
   credentials: true,
   optionsSuccessStatus: 200 // Para navegadores antiguos
@@ -25,7 +25,7 @@ app.use(cors(corsOptions));
 
 // Opcional: Configuración manual de headers (si necesitas más control)
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://xn--rojasbriceocoach-gub.cl/');
+  res.header('Access-Control-Allow-Origin', 'https://xn--rojasbriceocoach-gub.cl');
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
