@@ -108,7 +108,7 @@ export const comentBlog = async (req, res) => {
     await Blog.findByIdAndUpdate(req.params.id, {
       $push: { comentarios: comentario },
     });
-    res.status(200).json({ mensaje: comentario.mensaje });
+    res.status(200).json({ mensaje: "Comentario agregado correctamente" });
   } catch (error) {
     res.status(500).json({ error: "Error al agregar el comentario" });
   }
