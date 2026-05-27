@@ -16,7 +16,8 @@ const corsOptions = {
   origin: [
     'https://react-coach.vercel.app', // URL exacta de tu frontend
     'http://localhost:3000', // Para desarrollo
-    'https://xn--rojasbriceocoach-gub.cl'
+    'https://xn--rojasbriceocoach-gub.cl',
+    "https://react-coach.vercel.app", // ← esta
   ],
   credentials: true,
   optionsSuccessStatus: 200 // Para navegadores antiguos

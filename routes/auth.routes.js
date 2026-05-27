@@ -1,12 +1,12 @@
-import { Router } from "express";
-import { login, logout, verifyToken } from "../controllers/auth.controller.js";
+    import { Router } from "express";
+    import { login, logout, verifyToken } from "../controllers/auth.controller.js";
 
-const router = Router();
+    const router = Router();
 
-router.post("/login", login);
-router.post("/logout", logout);
+    router.post("/login", login);
+    router.post("/logout", logout);
 
-router.get("/verify-token", verifyToken);
+    router.get("/verify-token", verifyToken);
 
 
-export default router;
+    export default router;
